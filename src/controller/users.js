@@ -2,6 +2,7 @@ const { User } = require("../models");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 
+// 회원가입 user/signup
 const signup = async (req, res) => {
   const { userId, password } = req.body;
 
@@ -32,6 +33,7 @@ const signup = async (req, res) => {
   }
 };
 
+// 로그인 user/signin
 const signin = async (req, res) => {
   const { userId, password } = req.body;
   const secretKey = req.app.get("jwt-secret");

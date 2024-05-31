@@ -6,6 +6,7 @@ const { sequelize } = require("./src/models");
 const router = require("./src/routes/index");
 
 const port = process.env.PORT || 8080;
+
 require("dotenv").config();
 
 const corsOptions = {

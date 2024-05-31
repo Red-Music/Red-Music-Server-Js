@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     release_date: {
       // 발매일
-      type: DataTypes.DATE,
+      type: DataTypes.STRING(),
       allowNull: false,
     },
     genre: {
