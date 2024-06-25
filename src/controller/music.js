@@ -57,6 +57,10 @@ const musicList = async (req, res) => {
       offset,
     });
 
+    if (musics.rows.length === 0) {
+      return res.status(200).json({ message: "마지막 페이지 입니다.", musics });
+    }
+
     return res.status(200).json({ musics });
   } catch (err) {
     console.error(err);

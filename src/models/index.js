@@ -15,6 +15,7 @@ const sequelize = new Sequelize({
 db.User = require("./user")(sequelize, Sequelize);
 db.Music = require("./music")(sequelize, Sequelize);
 db.Playlist = require("./playlist")(sequelize, Sequelize);
+db.Like = require("./like")(sequelize, Sequelize);
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
@@ -24,5 +25,11 @@ db.Playlist.belongsTo(db.User, { foreignKey: "user_id", targetKey: "id" });
 
 db.Music.hasMany(db.Playlist, { foreignKey: "music_id", sourceKey: "id" });
 db.Playlist.belongsTo(db.Music, { foreignKey: "music_id", targetKey: "id" });
+
+db.User.hasMany(db.Like, { foreignKey: "user_id", sourceKey: "id" });
+db.Like.belongsTo(db.User, { foreignKey: "user_id", targetKey: "id" });
+
+db.Music.hasMany(db.Like, { foreignKey: "music_id", sourceKey: "id" });
+db.Like.belongsTo(db.Music, { foreignKey: "music_id", targetKey: "id" });
 
 module.exports = db;

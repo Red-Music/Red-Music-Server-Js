@@ -37,12 +37,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     subnail: {
       // 썸네일
-      type: DataTypes.STRING(),
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     music_file: {
       // 음악 파일
-      type: DataTypes.STRING(),
+      type: DataTypes.TEXT,
       allowNull: false,
     },
   });
